@@ -1,4 +1,5 @@
 import grpc
+import time
 
 from elasticdl.python.common import log_utils
 from elasticdl.python.common.args import parse_worker_args
@@ -16,6 +17,9 @@ def main():
     logger.info("Starting worker %d", args.worker_id)
     if args.master_addr is None:
         raise ValueError("master_addr is missing for worker")
+
+    logger.info("Start sleeping...")
+    time.sleep(86400)
 
     master_channel = build_channel(args.master_addr)
 

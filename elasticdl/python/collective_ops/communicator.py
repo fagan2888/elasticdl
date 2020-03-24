@@ -94,6 +94,7 @@ class CollectiveCommunicator(object):
         if svc_name is None:
             return None
         my_ip = socket.gethostbyname(socket.gethostname())
+        # svc_name = "test-trainftlib-consensus"
         temp_set = socket.getaddrinfo(svc_name, 0, proto=socket.IPPROTO_TCP)
         peer_set = {peer[-1][0] for peer in temp_set if peer[-1][0] != my_ip}
         return peer_set
